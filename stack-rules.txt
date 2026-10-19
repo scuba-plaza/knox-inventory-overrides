@@ -1,0 +1,68 @@
+﻿# Stack sizes (how many items of one type share one tile) for set-knox-stacks.ps1,
+# which generate-knox-overrides.ps1 runs. Edit this file, then run regenerate-overrides.bat.
+#
+# SYNTAX     <selector> [weight conditions] = <stack size>
+#   cat:Material            every item of that game DisplayCategory (comma list allowed: cat:Material,Junk)
+#   id:Base.Nails           one item; wildcards allowed (id:Base.*Carton, id:* = every item)
+#   kg>=3  kg<10  kg>5 kg<=2    weight conditions, all must hold
+#
+# HOW IT IS READ
+#   * Top to bottom; the LAST rule that matches an item wins. So: general rules first, exceptions after.
+#   * Stacks are only ever RAISED above Knox's own value (Knox already stacks nails, ammo, pills...), never lowered.
+#   * Which items can stack at all is decided by Knox + the Knox Inventory Tweaks mod, not here: plain, drainable,
+#     food, literature, maps, keys, weapon parts and MaterialWeapon items can; clothing, bags, moveables (tents...),
+#     radios, fluid containers and other weapons cannot.
+#   * Weight limits still apply: a big stack of heavy things costs one tile but is capped by what you can carry.
+#
+# THE IDEA
+#   1. A BASELINE gives every stackable item a stack size from its weight alone (distribution "B").
+#   2. BULK RESOURCES (materials, junk) stack more than the baseline: you hoard them by the dozen.
+#   3. BULKY CATEGORIES (tools, ammo boxes, vehicle parts...) are capped lower: they are bigger than their weight suggests.
+#   4. Individual exceptions.
+#   5. LAST RULE: anything under 0.25 kg stacks 100, whatever its category, so nothing small is ever awkward.
+# Category names: Material MaterialWeapon Junk VehicleMaintenance Tool Ammo Paint Camping Electronics Gardening
+#                 Cooking Household Sports Food Memento FirstAid Fishing LightSource AnimalPart ...
+
+# --- 1. Baseline by weight (under 0.25 kg is handled by the last rule; over 10 kg stays 1)
+id:* kg>=0.25 kg<0.5 = 50
+id:* kg>=0.5 kg<1 = 25
+id:* kg>=1 kg<=1 = 10
+id:* kg>1 kg<=2 = 5
+id:* kg>2 kg<=5 = 3
+id:* kg>5 kg<=10 = 2
+
+# --- 2. Bulk resources. MaterialWeapon = planks, firewood, sticks, pipes, bars, branches (they need the
+#        Knox Inventory Tweaks mod to stack at all, see its folder in Zomboid\mods).
+cat:Material,MaterialWeapon,Junk kg>=0.25 = 20
+cat:Material,MaterialWeapon,Junk kg>=1 = 10
+cat:Material,MaterialWeapon,Junk kg>=2 = 5
+cat:Material,MaterialWeapon,Junk kg>=5 = 3
+cat:Material,MaterialWeapon,Junk kg>=10 = 1    # ores, anvils, big stones
+
+# --- 3. Bulky categories: flat caps from 0.25 kg up
+cat:Ammo kg>=0.25 = 10                 # boxes (loose rounds and clips already stack high)
+cat:Ammo kg>=5 = 3                     # cartons
+cat:Tool kg>=0.25 = 5
+cat:Tool kg>=10 = 1                    # anvils, chains
+cat:Electronics kg>=0.25 = 10
+cat:Electronics kg>=10 = 1             # generators
+cat:Paint kg>=0.25 = 4
+cat:Camping kg>=0.25 = 10
+cat:Camping kg>=3 = 4                  # packed tents and sleeping bags
+cat:Cooking kg>=0.25 = 10
+cat:Cooking kg>=1.5 = 4
+cat:Household kg>=0.25 = 10
+cat:Household kg>=1 = 4                # umbrellas, extinguishers
+cat:Sports kg>=0.25 = 4
+cat:Gardening kg>=0.25 = 20            # a bulk resource like materials, but tapers sooner
+cat:Gardening kg>=2 = 4                # compost, feed, fertilizer
+cat:VehicleMaintenance kg>=3 = 4       # brakes, batteries, mufflers, windshields (small parts follow the baseline)
+cat:VehicleMaintenance kg>=10 = 2      # doors, tires, seats
+cat:VehicleMaintenance kg>=25 = 1      # trunks, gas tanks
+
+# --- 4. Individual exceptions
+id:Base.EngineParts = 5                # the crafting resource
+id:Base.HoodOrnament_* = 5
+
+# --- 5. Everything light stacks 100 (must stay LAST)
+id:* kg<0.25 = 100

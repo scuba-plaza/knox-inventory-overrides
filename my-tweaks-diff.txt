@@ -1,0 +1,43 @@
+﻿Knox overrides: what the script generates (2 cells/kg items, 3 cells/capacity bags) vs your file before the stack change
+
+== CHANGED by you (35): script value -> your value ==
+show_ids                                   no               -> yes
+Base.FirstAidKit                           grid 4x3         -> grid 4x4
+Base.FirstAidKit_New                       grid 4x3         -> grid 4x4
+Base.FirstAidKit_NewPro                    grid 4x3         -> grid 4x4
+Base.KeyRing                               grid 4x1         -> grid 4x2
+Base.KeyRing_Bass                          grid 4x1         -> grid 4x2
+Base.KeyRing_BlueFox                       grid 4x1         -> grid 4x2
+Base.KeyRing_Bug                           grid 4x1         -> grid 4x2
+Base.KeyRing_CarDealer                     grid 4x1         -> grid 4x2
+Base.KeyRing_Clover                        grid 4x1         -> grid 4x2
+Base.KeyRing_EagleFlag                     grid 4x1         -> grid 4x2
+Base.KeyRing_EightBall                     grid 4x1         -> grid 4x2
+Base.KeyRing_Forged                        grid 4x1         -> grid 4x2
+Base.KeyRing_Forged_Gold                   grid 4x1         -> grid 4x2
+Base.KeyRing_Forged_Silver                 grid 4x1         -> grid 4x2
+Base.KeyRing_Hotdog                        grid 4x1         -> grid 4x2
+Base.KeyRing_Kitty                         grid 4x1         -> grid 4x2
+Base.KeyRing_Large                         grid 4x2         -> grid 4x4
+Base.KeyRing_Nolans                        grid 4x1         -> grid 4x2
+Base.KeyRing_Panther                       grid 4x1         -> grid 4x2
+Base.KeyRing_PineTree                      grid 4x1         -> grid 4x2
+Base.KeyRing_PrayingHands                  grid 4x1         -> grid 4x2
+Base.KeyRing_RabbitFoot                    grid 4x1         -> grid 4x2
+Base.KeyRing_Racing12                      grid 4x1         -> grid 4x2
+Base.KeyRing_Racing34                      grid 4x1         -> grid 4x2
+Base.KeyRing_Racing58                      grid 4x1         -> grid 4x2
+Base.KeyRing_RainbowStar                   grid 4x1         -> grid 4x2
+Base.KeyRing_RubberDuck                    grid 4x1         -> grid 4x2
+Base.KeyRing_SecurityPass                  grid 4x1         -> grid 4x2
+Base.KeyRing_Sexy                          grid 4x1         -> grid 4x2
+Base.KeyRing_Spiffos                       grid 4x1         -> grid 4x2
+Base.KeyRing_StinkyFace                    grid 4x1         -> grid 4x2
+Base.KeyRing_WestMaple                     grid 4x1         -> grid 4x2
+Base.ToolRoll_Fabric                       grid 4x3         -> grid 4x6
+Base.ToolRoll_Leather                      grid 4x3         -> grid 4x6
+
+== ADDED by you; script would not write these (1) ==
+Base.PipeWrench = 1x2
+
+== REMOVED by you; script would write these (0) ==

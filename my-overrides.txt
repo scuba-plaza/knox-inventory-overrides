@@ -1,0 +1,40 @@
+# My own Knox Inventory overrides. Same syntax as knox_overrides.txt (one line per item, whole item on one line).
+# generate-knox-overrides.ps1 applies these LAST, replacing any generated line for the same item,
+# so they survive a regeneration. Add or edit lines here, then re-run the generator.
+
+show_ids = yes
+Base.FirstAidKit = grid 4x4
+Base.FirstAidKit_New = grid 4x4
+Base.FirstAidKit_NewPro = grid 4x4
+Base.KeyRing = grid 4x2
+Base.KeyRing_Bass = grid 4x2
+Base.KeyRing_BlueFox = grid 4x2
+Base.KeyRing_Bug = grid 4x2
+Base.KeyRing_CarDealer = grid 4x2
+Base.KeyRing_Clover = grid 4x2
+Base.KeyRing_EagleFlag = grid 4x2
+Base.KeyRing_EightBall = grid 4x2
+Base.KeyRing_Forged = grid 4x2
+Base.KeyRing_Forged_Gold = grid 4x2
+Base.KeyRing_Forged_Silver = grid 4x2
+Base.KeyRing_Hotdog = grid 4x2
+Base.KeyRing_Kitty = grid 4x2
+Base.KeyRing_Large = grid 4x4
+Base.KeyRing_Nolans = grid 4x2
+Base.KeyRing_Panther = grid 4x2
+Base.KeyRing_PineTree = grid 4x2
+Base.KeyRing_PrayingHands = grid 4x2
+Base.KeyRing_RabbitFoot = grid 4x2
+Base.KeyRing_Racing12 = grid 4x2
+Base.KeyRing_Racing34 = grid 4x2
+Base.KeyRing_Racing58 = grid 4x2
+Base.KeyRing_RainbowStar = grid 4x2
+Base.KeyRing_RubberDuck = grid 4x2
+Base.KeyRing_SecurityPass = grid 4x2
+Base.KeyRing_Sexy = grid 4x2
+Base.KeyRing_Spiffos = grid 4x2
+Base.KeyRing_StinkyFace = grid 4x2
+Base.KeyRing_WestMaple = grid 4x2
+Base.ToolRoll_Fabric = 2x1 grid 5x3
+Base.ToolRoll_Leather = 2x1 grid 5x3
+Base.PipeWrench = 1x2
